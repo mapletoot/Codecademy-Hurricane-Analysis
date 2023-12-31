@@ -31,12 +31,32 @@ deaths = [90, 4000, 16, 3103, 179, 184, 408, 682, 5, 1023, 43, 319, 688, 259, 37
 conversion = {"M": 1000000,
               "B": 1000000000}
 
+
+def damages_to_floats(damages_list_of_strings):
+    damages_floats_list = []
+    for value in damages_list_of_strings:
+        if value.lower() == "damages not recorded":
+            damages_floats_list.append(value)
+        else:
+            value_m_or_b = value[-1]
+            value_only = value[: -1]
+            value_float = float(value_only)
+            new_value = value_float * conversion[value_m_or_b]
+            damages_floats_list.append(new_value)
+    return damages_floats_list
+
+
 # test function by updating damages
+damages = damages_to_floats(damages)
+
+print(damages)
 
 # 2
-# Create a Table
-
 # Create and view the hurricanes dictionary
+
+
+def hurricane_dictionary_creator(names_list, months_list, years_list, max_sustained_winds_list, areas_affected_list, damages_list, deaths_list):
+    pass
 
 # 3
 # Organizing by Year
