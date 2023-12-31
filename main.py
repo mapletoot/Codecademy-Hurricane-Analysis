@@ -49,7 +49,7 @@ def damages_to_floats(damages_list_of_strings):
 # test function by updating damages
 damages = damages_to_floats(damages)
 
-print(damages)
+# print(damages)
 
 # 2
 # Create and view the hurricanes dictionary
@@ -66,7 +66,7 @@ def hurricane_dictionary_creator(names_list, months_list, years_list, max_sustai
 
 hurricane_dict = hurricane_dictionary_creator(
     names, months, years, max_sustained_winds, areas_affected, damages, years)
-print(hurricane_dict)
+# print(hurricane_dict)
 # 3
 # Organizing by Year
 
@@ -83,11 +83,26 @@ def hurricane_dictionary_by_year(names_list, months_list, years_list, max_sustai
 hurricane_dict_by_year = hurricane_dictionary_by_year(
     names, months, years, max_sustained_winds, areas_affected, damages, years)
 
-print(hurricane_dict_by_year)
+# print(hurricane_dict_by_year)
 # 4
 # Counting Damaged Areas
 
-# create dictionary of areas to store the number of hurricanes involved in
+
+def damages_counter(hurricanes_info):
+    damages_dictionary = {}
+    for values in hurricanes_info.values():
+        damage_locations = values["Areas Affected"]
+        for location in damage_locations:
+            location_lower = location.lower()
+            if location_lower in damages_dictionary:
+                damages_dictionary[location_lower] += 1
+            else:
+                damages_dictionary[location_lower] = 1
+    print(damages_dictionary)
+    return (damages_dictionary)
+
+
+damages_counter(hurricane_dict)
 
 
 # 5
@@ -111,7 +126,6 @@ print(hurricane_dict_by_year)
 # 8 Calculating Hurricane Maximum Damage
 
 # find highest damage inducing hurricane and its total cost
-
 
 # 9
 # Rating Hurricanes by Damage
