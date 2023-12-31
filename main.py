@@ -56,8 +56,17 @@ print(damages)
 
 
 def hurricane_dictionary_creator(names_list, months_list, years_list, max_sustained_winds_list, areas_affected_list, damages_list, deaths_list):
-    pass
+    new_dict = {}
+    for i in range(len(names_list)):
+        dict_value = {"Name": names_list[i], "Month": months_list[i], "Year": years_list[i], "Max Sustained Wind": max_sustained_winds_list[i],
+                      "Areas Affected": areas_affected_list[i], "Damage": damages_list[i], "Deaths": deaths_list[i]}
+        new_dict[names_list[i]] = dict_value
+    return new_dict
 
+
+hurricane_dict = hurricane_dictionary_creator(
+    names, months, years, max_sustained_winds, areas_affected, damages, years)
+print(hurricane_dict)
 # 3
 # Organizing by Year
 
